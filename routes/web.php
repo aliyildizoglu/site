@@ -26,9 +26,9 @@ Route::get('/siparisler', [SiparisController::class, 'index'])->name('siparisler
 Route::get('/siparisler/{id}', [SiparisController::class, 'detay'])->name('siparis');
 Route::get('/kategori/{slug_kategoriadi}', [KategoriController::class, 'index'])->name('kategori');
 Route::get('/urun/{slug_urunadi}', [UrunController::class, 'index'])->name('urun');
-Route::get('/kullanici/oturumac', [UrunController::class, 'giris_form'])->name('kullanici.oturumac');
-Route::get('/kullanici/kaydol', [UrunController::class, 'kaydol_form'])->name('kullanici.kaydol');
-
-
+Route::group(['prefix' => 'kullanici'], function () {
+    Route::get('/oturumac', [KullaniciController::class, 'giris_form'])->name('kullanici.oturumac');
+    Route::get('/kaydol', [KullaniciController::class, 'kaydol_form'])->name('kullanici.kaydol');
+});
 
 

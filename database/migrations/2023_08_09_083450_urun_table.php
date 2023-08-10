@@ -6,11 +6,7 @@ use Illuminate\Support\Facades\Schema;
 
 class UrunTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
+
     public function up()
     {
         Schema::create('urun', function (Blueprint $table) {
@@ -24,6 +20,7 @@ class UrunTable extends Migration
             $table->timestamp('silinme_tarihi')->nullable();
         });
     }
+
 
     public function down()
     {

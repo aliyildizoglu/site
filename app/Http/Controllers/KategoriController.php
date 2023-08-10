@@ -21,7 +21,8 @@ class KategoriController extends Controller
         // Belirtilen kategorinin altındaki kne sahip ilk kategoriyi çekiyoruz.altkategorileri çekiyoruz.
         $alt_kategoriler = Kategori::where('ust_id',$kategori->id)->get();
 
+        $urunler = $kategori->urunler;
         // 'kategori' ve 'alt_kategoriler' değişkenlerini kullanarak 'kategori' görünümünü oluşturuyoruz.
-        return view('kategori',compact('kategori','alt_kategoriler'));
+        return view('kategori',compact('kategori','urunler','alt_kategoriler'));
     }
 }

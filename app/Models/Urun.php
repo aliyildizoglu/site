@@ -7,8 +7,14 @@ use Illuminate\Database\Eloquent\Model;
 
 class Urun extends Model
 {
-    protected  $table  ='urun';
-    protected  $guarded  =[];
-    const CREATED_AT = 'oluşturulma_tarihi';
+    protected $table = 'urun';
+    protected $guarded = [];
+    const CREATED_AT = 'olusturulma_tarihi';
     const UPDATED_AT = 'guncelleme_tarihi';
+
+
+    public function kategoriler()
+    {
+        return $this->belongsToMany(Kategori::class, 'kategori_urun');
+    }
 }

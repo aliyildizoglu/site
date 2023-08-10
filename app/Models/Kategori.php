@@ -12,4 +12,9 @@ class Kategori extends Model
     const CREATED_AT = 'oluşturulma_tarihi';
     const UPDATED_AT = 'guncelleme_tarihi';
 
+    public function urunler()
+    {
+        return $this->belongsToMany(Urun::class,'kategori_urun');
+    }
+
 }

@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Kategori;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
@@ -14,6 +15,7 @@ class KategoriTableSeeder extends Seeder
      */
     public function run()
     {
+
 
         $id =  DB::table('kategori')->insertGetId(['kategori_adi'=>'Elektronik','slug'=>'elektronik']);
         DB::table('kategori')->insert(['kategori_adi' =>'Bilgisayar', 'slug'=>'bilgisayar', 'ust_id'=> $id]);

@@ -9,6 +9,10 @@
 <link rel="stylesheet" href="{{asset('assets/css/jquery-ui.css')}}">
 <link rel="stylesheet" href="{{asset('assets/css/owl.carousel.min.css')}}">
 <link rel="stylesheet" href="{{asset('assets/css/owl.theme.default.min.css')}}">
+<link rel="stylesheet" href="{{asset('assets/css/owl.theme.default.min.css')}}">
+<link rel="stylesheet" href="{{asset('assets/css/templatemo.css')}}">
+<link rel="stylesheet" href="{{asset('assets/css/custom.css')}}">
+<link rel="stylesheet" href="{{asset('assets/css/fontawesome.min.css')}}">
 
 
 <link rel="stylesheet" href="{{asset('assets/css/aos.css')}}">

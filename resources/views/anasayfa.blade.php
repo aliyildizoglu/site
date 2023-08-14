@@ -3,56 +3,109 @@
 
 @section('content')
 
-
-    <div class="site-blocks-cover" style="background-image: url({{asset('assets/images/hero_1.jpg')}});" data-aos="fade">
-        <div class="container">
-            <div class="row align-items-start align-items-md-center justify-content-end">
-                <div class="col-md-5 text-center text-md-left pt-5 pt-md-0">
-                    <h1 class="mb-2">Finding Your Perfect Shoes</h1>
-                    <div class="intro-text text-center text-md-left">
-                        <p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus at iaculis quam. Integer accumsan tincidunt fringilla. </p>
-                        <p>
-                            <a href="#" class="btn btn-sm btn-primary">Shop Now</a>
-                        </p>
+    <div id="template-mo-zay-hero-carousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
+        <div class="carousel-inner">
+            @foreach($urunler_slider as $index => $urunler_detay)
+                <div class="carousel-item {{$index == 0 ? 'active': ''}}">
+                    <figure class="image">
+                        <img src="{{asset('assets/images/women.jpg')}}" alt="" class="img-fluid w-100" style="max-height: 50vh; object-fit: cover;">
+                    </figure>
+                    <div class="carousel-caption text-center">
+                        <strong><h3 style="color: #7971EA; ">{{ $urunler_detay->urun->urun_adi }}</h3></strong>
                     </div>
+                </div>
+            @endforeach
+        </div>
+        <a class="carousel-control-prev text-decoration-none w-auto ps-3" href="#template-mo-zay-hero-carousel" role="button" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden"></span>
+        </a>
+        <a class="carousel-control-next text-decoration-none w-auto pe-3" href="#template-mo-zay-hero-carousel" role="button" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden"></span>
+        </a>
+    </div>
+
+    <div class="site-section block-8">
+        <div class="container">
+            <div class="row justify-content-center mb-5">
+                <div class="col-md-7 site-section-heading text-center pt-4">
+                    <h2>Büyük İndirim!</h2>
+                </div>
+            </div>
+            <div class="row align-items-center">
+                <div class="col-md-12 col-lg-7 mb-5 text-center"> <!-- Resmin hizalaması merkezde -->
+                    <a href="{{ route('urun', $urun_gunun_firsati->slug) }}">
+                        <div class="image-container" style="max-width: 70%; margin: 0 auto;"> <!-- Resmin genişliği sınırlanıyor ve hizalanıyor -->
+                            <img src="{{ asset('assets/images/women.jpg') }}" alt="Image placeholder" class="img-fluid rounded">
+                        </div>
+                    </a>
+                </div>
+                <div class="col-md-12 col-lg-5 text-center pl-md-5">
+                    <h2>{{ $urun_gunun_firsati->urun_adi }}</h2>
+                    <p><a href="{{ route('urun', $urun_gunun_firsati->slug) }}" class="btn btn-primary btn-sm">Şimdi Al</a></p>
                 </div>
             </div>
         </div>
     </div>
 
-    <div class="site-section site-section-sm site-blocks-1">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6 col-lg-4 d-lg-flex mb-4 mb-lg-0 pl-4" data-aos="fade-up" data-aos-delay="">
-                    <div class="icon mr-4 align-self-start">
-                        <span class="icon-truck"></span>
-                    </div>
-                    <div class="text">
-                        <h2 class="text-uppercase">Free Shipping</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus at iaculis quam. Integer accumsan tincidunt fringilla.</p>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4 d-lg-flex mb-4 mb-lg-0 pl-4" data-aos="fade-up" data-aos-delay="100">
-                    <div class="icon mr-4 align-self-start">
-                        <span class="icon-refresh2"></span>
-                    </div>
-                    <div class="text">
-                        <h2 class="text-uppercase">Free Returns</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus at iaculis quam. Integer accumsan tincidunt fringilla.</p>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4 d-lg-flex mb-4 mb-lg-0 pl-4" data-aos="fade-up" data-aos-delay="200">
-                    <div class="icon mr-4 align-self-start">
-                        <span class="icon-help"></span>
-                    </div>
-                    <div class="text">
-                        <h2 class="text-uppercase">Customer Support</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus at iaculis quam. Integer accumsan tincidunt fringilla.</p>
-                    </div>
-                </div>
+    <!-- Start Categories of The Month -->
+    <section class="container py-5">
+        <div class="row text-center pt-3">
+            <div class="col-lg-6 m-auto">
+                <h1 class="h1">Öne çıkanlar</h1>
             </div>
         </div>
-    </div>
+        <div class="row">
+            @foreach($goster_one_cikan as $urun)
+                <div class="col-12 col-md-4 p-5 mt-3">
+                    <a href="{{route('urun',  $urun->slug)}}"><img src="{{asset('assets/images/women.jpg')}}" class="rounded-circle img-fluid border"></a>
+                    <h5 class="text-center mt-3 mb-3">{{$urun->urun_adi}}</h5>
+                    <p class="text-center"><a class="btn btn-primary">Alışveriş Yap</a></p>
+                </div>
+            @endforeach
+        </div>
+    </section>
+    <!-- End Categories of The Month -->
+
+    <!-- Start Categories of The Month -->
+    <section class="container py-5">
+        <div class="row text-center pt-3">
+            <div class="col-lg-6 m-auto">
+                <h1 class="h1">Çok Satanlar</h1>
+            </div>
+        </div>
+        <div class="row">
+            @foreach($goster_cok_satan as $urun)
+                <div class="col-12 col-md-4 p-5 mt-3">
+                    <a href="{{route('urun', $urun->slug)}}"><img src="{{asset('assets/images/women.jpg')}}" class="rounded-circle img-fluid border"></a>
+                    <h5 class="text-center mt-3 mb-3">{{$urun->urun_adi}}</h5>
+                    <p class="text-center"><a class="btn btn-primary">Alışveriş Yap</a></p>
+                </div>
+            @endforeach
+        </div>
+    </section>
+    <!-- End Categories of The Month -->
+
+    <!-- Start Categories of The Month -->
+    <section class="container py-5">
+        <div class="row text-center pt-3">
+            <div class="col-lg-6 m-auto">
+                <h1 class="h1">İndirimli Ürünler</h1>
+            </div>
+        </div>
+        <div class="row">
+            @foreach($goster_indirimli as $urun)
+                <div class="col-12 col-md-4 p-5 mt-3">
+                    <a href="{{route('urun', $urun->slug)}}"><img src="{{asset('assets/images/women.jpg')}}" class="rounded-circle img-fluid border"></a>
+                    <h5 class="text-center mt-3 mb-3">{{$urun->urun_adi}}</h5>
+                    <p class="text-center"><a class="btn btn-primary">Alışveriş Yap</a></p>
+                </div>
+            @endforeach
+        </div>
+    </section>
+    <!-- End Categories of The Month -->
+
 
     <div class="site-section site-blocks-2">
         <div class="container">
@@ -76,6 +129,7 @@
             </div>
         </div>
     </div>
+
 
 
 @endsection

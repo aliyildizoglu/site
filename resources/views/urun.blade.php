@@ -1,5 +1,5 @@
 @extends('layouts.master')
-@section('title','Urun')
+@section('title',$urun->urun_adi)
 
 @section('content')
 
@@ -7,7 +7,12 @@
     <div class="bg-light py-3">
         <div class="container">
             <div class="row">
-                <div class="col-md-12 mb-0"><a href="index.html">Home</a> <span class="mx-2 mb-0">/</span> <strong class="text-black">Tank Top T-Shirt</strong></div>
+                <div class="col-md-12 mb-0"><a href="{{route('anasayfa')}}">Anasayfa</a>
+                @foreach($kategoriler as $kategori)
+                <div class="col-md-12 mb-0"><a href="{{route('kategori', $kategori->slug)}}">{{$kategori->kategori_adi}}</a> <span class="mx-2 mb-0">/</span>
+
+                    @endforeach
+                    <strong class="text-black">{{$urun->urun_adi}}</strong></div>
             </div>
         </div>
     </div>
@@ -19,24 +24,10 @@
                     <img src="images/cloth_1.jpg" alt="Image" class="img-fluid">
                 </div>
                 <div class="col-md-6">
-                    <h2 class="text-black">Tank Top T-Shirt</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur, vitae, explicabo? Incidunt facere, natus soluta dolores iusto! Molestiae expedita veritatis nesciunt doloremque sint asperiores fuga voluptas, distinctio, aperiam, ratione dolore.</p>
-                    <p class="mb-4">Ex numquam veritatis debitis minima quo error quam eos dolorum quidem perferendis. Quos repellat dignissimos minus, eveniet nam voluptatibus molestias omnis reiciendis perspiciatis illum hic magni iste, velit aperiam quis.</p>
-                    <p><strong class="text-primary h4">$50.00</strong></p>
-                    <div class="mb-1 d-flex">
-                        <label for="option-sm" class="d-flex mr-3 mb-3">
-                            <span class="d-inline-block mr-2" style="top:-2px; position: relative;"><input type="radio" id="option-sm" name="shop-sizes"></span> <span class="d-inline-block text-black">Small</span>
-                        </label>
-                        <label for="option-md" class="d-flex mr-3 mb-3">
-                            <span class="d-inline-block mr-2" style="top:-2px; position: relative;"><input type="radio" id="option-md" name="shop-sizes"></span> <span class="d-inline-block text-black">Medium</span>
-                        </label>
-                        <label for="option-lg" class="d-flex mr-3 mb-3">
-                            <span class="d-inline-block mr-2" style="top:-2px; position: relative;"><input type="radio" id="option-lg" name="shop-sizes"></span> <span class="d-inline-block text-black">Large</span>
-                        </label>
-                        <label for="option-xl" class="d-flex mr-3 mb-3">
-                            <span class="d-inline-block mr-2" style="top:-2px; position: relative;"><input type="radio" id="option-xl" name="shop-sizes"></span> <span class="d-inline-block text-black"> Extra Large</span>
-                        </label>
-                    </div>
+                    <h2 class="text-black">{{$urun->urun_adi}}</h2>
+                    <p>{{$urun->aciklama}}</p>
+                    <p><strong class="text-primary h4">{{$urun->fiyati}}</strong></p>
+
                     <div class="mb-5">
                         <div class="input-group mb-3" style="max-width: 120px;">
                             <div class="input-group-prepend">

@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\KullaniciKayitMail;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Str;
 use App\Models\Kullanici;
 
@@ -23,12 +25,11 @@ class KullaniciController extends Controller
 
     public function kaydol(){
 
-        $this->validate(request(),[
+        $this->validate(request(), [
             'adsoyad' => 'required|min:5|max:60',
             'email' => 'required|email|unique:kullanici', // Burada "unique" olmalı
             'sifre' => 'required|confirmed|min:5|max:15'
         ]);
-
 
 
         $kullanici = Kullanici::create([
@@ -40,6 +41,8 @@ class KullaniciController extends Controller
             'aktif_mi'              =>0
 
         ]);
+
+        Mail::to(\request('email'))->send(new KullaniciKayitMail($kullanici));
 
         auth()->login($kullanici);
         return redirect()->route('anasayfa');

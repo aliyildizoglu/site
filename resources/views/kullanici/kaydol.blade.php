@@ -26,8 +26,8 @@
                             <input type="password" class="form-control" name="sifre" id="sifre" placeholder="Şifrenizi girin" required>
                         </div>
                         <div class="form-group">
-                            <label for="sifre-confirmation">Şifre Tekrarı</label>
-                            <input type="password" class="form-control" name="sifre-confirmation" id="sifre-confirmation" placeholder="Şifrenizi tekrar girin" required>
+                            <label for="sifre_confirmation">Şifre Tekrarı</label>
+                            <input type="password" class="form-control" name="sifre_confirmation" id="sifre_confirmation" placeholder="Şifrenizi tekrar girin" required>
                         </div>
                         <button type="submit" class="btn btn-primary">Kaydol</button>
                     </form>

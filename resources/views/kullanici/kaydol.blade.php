@@ -2,36 +2,37 @@
 @section('title','Kaydol')
 
 @section('content')
-    <br><br> <!-- Yukarıdan 4 cm boşluk için iki adet <br> etiketi ekliyoruz -->
+    <br><br>
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-6">
-                <h2 class="h3 mb-3 text-black text-center">User Registration</h2>
+                <h2 class="h3 mb-3 text-black text-center">Kullanıcı Kaydı</h2>
 
                 <div class="p-3 p-lg-5 border">
-                    <form id="registrationForm" class="text-center">
+                  @include('layouts.partials.errors')
+
+                    <form id="registrationForm" class="text-center" role="form" method="POST" action="{{ route('kullanici.kaydol') }}">
+                        @csrf
                         <div class="form-group">
-                            <label for="username">Username</label>
-                            <input type="text" class="form-control" id="username" placeholder="Enter your username" required>
+                            <label for="adsoyad">Ad Soyad</label>
+                            <input type="text" class="form-control" value="{{old('adsoyad')}}" name="adsoyad" id="adsoyad" placeholder="Adınızı ve soyadınızı girin" required>
                         </div>
                         <div class="form-group">
-                            <label for="email">Email Address</label>
-                            <input type="email" class="form-control" id="email" placeholder="Enter your email address" required>
+                            <label for="email">E-posta Adresi</label>
+                            <input type="email" class="form-control" name="email"value="{{old('email')}}" id="email" placeholder="E-posta adresinizi girin" required>
                         </div>
                         <div class="form-group">
-                            <label for="password">Password</label>
-                            <input type="password" class="form-control" id="password" placeholder="Enter your password" required>
+                            <label for="sifre">Şifre</label>
+                            <input type="password" class="form-control" name="sifre" id="sifre" placeholder="Şifrenizi girin" required>
                         </div>
                         <div class="form-group">
-                            <label for="confirmPassword">Confirm Password</label>
-                            <input type="password" class="form-control" id="confirmPassword" placeholder="Enter your password again" required>
+                            <label for="sifre-confirmation">Şifre Tekrarı</label>
+                            <input type="password" class="form-control" name="sifre-confirmation" id="sifre-confirmation" placeholder="Şifrenizi tekrar girin" required>
                         </div>
-                        <button type="submit" class="btn btn-primary">Register</button>
+                        <button type="submit" class="btn btn-primary">Kaydol</button>
                     </form>
                 </div>
             </div>
         </div>
     </div>
-    <br><br> <!-- Aşağıdan 4 cm boşluk için iki adet <br> etiketi ekliyoruz -->
-
 @endsection

@@ -30,7 +30,9 @@ Route::get('/kategori/{slug_kategoriadi}', [KategoriController::class, 'index'])
 Route::get('/urun/{slug_urunadi}', [UrunController::class, 'index'])->name('urun');
 Route::group(['prefix' => 'kullanici'], function () {
     Route::get('/oturumac', [KullaniciController::class, 'giris_form'])->name('kullanici.oturumac');
+    Route::post('/kaydol', [KullaniciController::class, 'kaydol']);
     Route::get('/kaydol', [KullaniciController::class, 'kaydol_form'])->name('kullanici.kaydol');
+
 });
 
 

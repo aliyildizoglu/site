@@ -3,7 +3,7 @@
         <div class="row align-items-center">
             <div class="col-md-4 order-md-2 text-center order-1">
                 <div class="site-logo">
-                    <a href="index.html" class="js-logo-clone">Shoppers</a>
+                    <a href="{{route('anasayfa')}}" class="js-logo-clone">Shoppers</a>
                 </div>
             </div>
 
@@ -22,8 +22,32 @@
             <div class="col-md-4 order-md-3 text-right order-3">
                 <div class="site-top-icons">
                     <ul>
-                        <li><a href="#"><span class="icon icon-person"></span></a></li>
-                        <li><a href="#"><span class="icon icon-heart-o"></span></a></li>
+                        @auth()
+                            <!-- Profil Dropdown -->
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                    <span>Profil</span> <span class="caret"></span>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#"><span>Siparişlerim</span></a></li>
+                                    <li><a href="#"><span>Çıkış</span></a></li>
+                                </ul>
+                            </li>
+                        @endauth
+
+                        <!-- Oturum Aç ve Kaydol Girişleri -->
+                        @guest
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                    <span>Oturum Aç</span> <span class="caret"></span>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="{{route('kullanici.oturumac')}}"><span>Oturum Aç</span></a></li>
+                                    <li><a href="{{route('kullanici.kaydol')}}"><span>Kaydol</span></a></li>
+                                </ul>
+                            </li>
+                        @endguest
+                        <!-- Alışveriş Sepeti -->
                         <li>
                             <a href="cart.html" class="site-cart">
                                 <span class="icon icon-shopping_cart"></span>
@@ -34,6 +58,8 @@
                     </ul>
                 </div>
             </div>
+
+
         </div>
     </div>
 </div>

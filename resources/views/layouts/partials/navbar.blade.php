@@ -30,9 +30,13 @@
                                 </a>
                                 <ul class="dropdown-menu">
                                     <li><a href="#"><span>Siparişlerim</span></a></li>
-                                    <li><a href="#"><span>Çıkış</span></a></li>
+                                    <li><a href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><span>Çıkış</span></a></li>
+                                    <form id="logout-form" action="{{ route('kullanici.oturumukapat') }}" method="post" style="display: none;">
+                                        @csrf
+                                    </form>
                                 </ul>
                             </li>
+
                         @endauth
 
                         <!-- Oturum Aç ve Kaydol Girişleri -->

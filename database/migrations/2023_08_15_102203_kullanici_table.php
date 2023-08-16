@@ -22,6 +22,7 @@ class KullaniciTable extends Migration
         $table->string('sifre',60);
         $table->string('aktivasyon_anahtari', 60)->nullable();
         $table->boolean('aktif_mi')->default(0);
+        $table->rememberToken();
         $table->timestamp('olusturulma_tarihi')->default(DB::raw('CURRENT_TIMESTAMP'));
         $table->timestamp('guncelleme_tarihi')->default(DB::raw('CURRENT_TIMESTAMP on UPDATE CURRENT_TIMESTAMP'));
         $table->timestamp('silinme_tarihi')->nullable();

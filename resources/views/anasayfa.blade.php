@@ -2,6 +2,7 @@
 @section('title','Anasayfa')
 
 @section('content')
+    @include('layouts.partials.alert');
 
     <div id="template-mo-zay-hero-carousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
         <div class="carousel-inner">

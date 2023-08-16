@@ -33,4 +33,9 @@ class Kullanici extends Authenticatable
     ];
 
 
+    public function getAuthPassword()
+    {
+        return $this->sifre;
+    }
+
 }

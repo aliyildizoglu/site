@@ -9,17 +9,20 @@
                 <h2 class="h3 mb-3 text-black text-center">User Login</h2>
 
                 <div class="p-3 p-lg-5 border">
-                    <form id="loginForm" class="text-center">
+                    @include('layouts.partials.errors')
+
+                    <form id="loginForm" class="text-center" method="POST" action="{{route('kullanici.oturumac')}}">
+                        @csrf
                         <div class="form-group">
                             <label for="username">Username</label>
-                            <input type="text" class="form-control" id="username" placeholder="Enter your username" required>
+                            <input type="text" class="form-control" id="email" name="email" placeholder="Enter your username" required>
                         </div>
                         <div class="form-group">
                             <label for="password">Password</label>
-                            <input type="password" class="form-control" id="password" placeholder="Enter your password" required>
+                            <input type="password" class="form-control" id="sifre"  name="sifre"  placeholder="Enter your password" required>
                         </div>
                         <div class="form-check mb-3">
-                            <input type="checkbox" class="form-check-input" id="rememberMe">
+                            <input type="checkbox" class="form-check-input" name="benihatirla">
                             <label class="form-check-label" for="rememberMe">Remember Me</label>
                         </div>
                         <button type="submit" class="btn btn-primary">Login</button>

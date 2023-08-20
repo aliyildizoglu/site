@@ -40,7 +40,12 @@
                         </div>
 
                     </div>
-                    <p><a href="cart.html" class="buy-now btn btn-sm btn-primary">Add To Cart</a></p>
+                    <form action="{{route('sepet.ekle')}}" method="post">
+                        @csrf
+                        <input type="hidden" name="id" value="{{$urun->id}}">
+                        <input type="submit" class="btn btn-thema"  value="Sepete Ekle">
+                    </form>
+
 
                 </div>
             </div>

@@ -22,7 +22,14 @@ use App\Http\Controllers\KullaniciController;
 Route::get('/', [AnasayfaController::class, 'index'])->name('anasayfa');
 Route::post('/ara',[UrunController::class,'ara'])->name('urun_ara');
 Route::get('/ara',[UrunController::class,'ara'])->name('urun_ara');
-Route::get('/sepet', [SepetController::class, 'index'])->name('sepet');
+
+Route::group(['prefix' => 'sepet'], function (){
+
+    Route::get('/', [SepetController::class, 'index'])->name('sepet');
+    Route::post('/ekle', [SepetController::class, 'ekle'])->name('sepet.ekle');
+});
+
+
 
 
 Route::group([ 'middleware' => 'auth'], function (){
